@@ -1,0 +1,30 @@
+.container {
+  width: 100%;
+  height: 99%;
+  background-color: rgb(245, 245, 245);
+  padding: 2px 0;
+}
+
+.title-bar-value {
+  display: flex;
+  justify-content: flex-end;
+}
+
+.custom-collapse-item {
+  margin-top: 5px;
+}
+
+.custom-collapse-item-icon {
+  padding-top: 3px;
+}
+.custom-collapse-item-name {
+  font-size: 14px;
+  font-weight: 650;
+}
+.custom-collapse-item-dept {
+  font-size: 12px;
+}
+.custom-collapse-item-time {
+  color: rgb(150, 150, 150);
+  font-size: 12px;
+}

@@ -1,0 +1,6 @@
+.login-btn {
+  position: absolute;
+  top: 40%;
+  left: calc(50% - 83px);
+  width: 200px;
+}

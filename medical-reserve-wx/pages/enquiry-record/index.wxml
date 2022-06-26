@@ -1,0 +1,52 @@
+<view class="container">
+  <van-cell-group>
+    <van-cell 
+      icon="balance-list-o"
+      title="就诊记录" 
+      border="{{ false }}"
+      value-class="title-bar-value"
+    >
+      <span>点击查看详情</span>
+      <van-icon size="20px" name="/static/icon/single-click.svg" />
+    </van-cell>
+  </van-cell-group>
+  <view hidden="{{ equirys.length !== 0 }}"> 
+    <van-empty description="暂无就诊记录" />
+  </view>
+  <view hidden="{{ equirys.length === 0 }}"> 
+    <van-collapse 
+      accordion 
+      value="{{ activeCollapse }}" 
+      bind:change="collapseChange"
+    >
+      <van-collapse-item 
+        wx:for="{{ equirys }}" 
+        wx:key="index" 
+        wx:for-index="index" 
+        wx:for-item="item" 
+        name="{{ item.id }}"
+        custom-class="custom-collapse-item"
+      >
+        <van-row slot="title">
+          <van-col span="2" custom-class="custom-collapse-item-icon">
+            <van-icon 
+              name="checked" 
+              color="#41cbb5" 
+              size="20px" 
+            />
+          </van-col>
+          <van-col span="4" custom-class="custom-collapse-item-name">
+            {{ item.doctorName }}
+          </van-col>
+          <van-col span="8"  custom-class="custom-collapse-item-dept">
+            {{ item.deptName }}
+          </van-col>
+          <van-col span="10"  custom-class="custom-collapse-item-time">
+            {{ item.createTime }}
+          </van-col>
+        </van-row>
+        <view>备注： {{ item.remark }}</view>
+      </van-collapse-item>
+    </van-collapse>
+  </view>
+</view>

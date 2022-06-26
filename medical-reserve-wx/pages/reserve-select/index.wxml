@@ -1,0 +1,14 @@
+<view class="container">
+  <van-tree-select
+    main-item-class="tree-left-item"
+    main-active-class="tree-left-active-item"
+    content-item-class="tree-right-item"
+    content-active-class="tree-right-active-item"
+    items="{{ depts }}"
+    main-active-index="{{ deptIndex }}"
+    active-id="{{ doctorIndex }}"
+    bind:click-nav="handleSelectDept"
+    bind:click-item="handleSelectDoctor"
+    height="100%"
+  />
+</view>

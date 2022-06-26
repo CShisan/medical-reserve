@@ -1,0 +1,11 @@
+<van-tabbar active="{{ active }}" active-color="#51d3bd" bind:change="onChange">
+  <van-tabbar-item
+    wx:for="{{ list }}"
+    wx:key="index"
+    wx:for-index="index"
+    wx:for-item="item"
+    icon="{{ item.icon }}"
+  >
+    {{ item.text }}
+  </van-tabbar-item>
+</van-tabbar>

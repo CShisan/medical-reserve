@@ -1,0 +1,27 @@
+.van-tree-select {
+  border: 1px solid rgb(218, 218, 218);
+  border-width: 1px 0 0 0;
+}
+
+.tree-left-item {
+  font-size: 16px !important;
+  color: #fff !important;
+  background-color: #3eceb6 !important;
+}
+
+.tree-left-active-item {
+  color: #000 !important;
+  background-color: #fff !important;
+  border-color: #3eceb6 !important;
+}
+
+.tree-right-item {
+  margin: 0 0 0 20px;
+  font-weight: normal !important;
+  border: 1px solid rgb(230, 230, 230);
+  border-width: 0 0 1px 0;
+}
+
+.tree-right-active-item {
+  color: #3eceb6 !important;
+}

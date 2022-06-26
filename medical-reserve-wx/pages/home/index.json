@@ -1,0 +1,15 @@
+{
+  "usingComponents": {
+    "login": "/components/login/index",
+    "certification": "/components/certification/index",
+    "van-row": "@vant/weapp/row/index",
+    "van-col": "@vant/weapp/col/index",
+    "van-notice-bar": "@vant/weapp/notice-bar/index",
+    "van-image": "@vant/weapp/image/index",
+    "van-grid": "@vant/weapp/grid/index",
+    "van-grid-item": "@vant/weapp/grid-item/index",
+    "van-cell-group": "@vant/weapp/cell-group/index",
+    "van-cell": "@vant/weapp/cell/index",
+    "van-dialog": "@vant/weapp/dialog/index"
+  }
+}

@@ -1,0 +1,132 @@
+<van-dialog id="van-dialog" confirm-button-color="#51d3bd" />
+<view class="container">
+  <van-row>
+    <van-col span="24">
+      <van-notice-bar
+        left-icon="volume-o"
+        color="#fff"
+        background="#51d3bd"
+        text="在代码阅读过程中人们说脏话的频率是衡量代码质量的唯一标准。"
+      />
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="24">
+      <swiper 
+        indicator-dots="{{true}}"
+        autoplay="{{true}}" 
+        interval="{{3000}}"
+        circular="{{true}}"
+        indicator-active-color="#51d3bd"
+      >
+      <block
+        wx:for="{{swipers}}" 
+        wx:for-index="index" 
+        wx:for-item="item" 
+        wx:key="index"
+      >
+        <swiper-item>
+          <cover-image src="{{item}}"/>
+        </swiper-item>
+      </block>
+      </swiper>
+    </van-col>
+  </van-row>
+  <van-row custom-class="call-me-bar">
+    <van-col span="24">
+      <van-cell-group inset >
+        <van-cell custom-class="call-me-cell" title="若需要帮助请致电" is-link center bind:click="showCallMe">
+            <van-image
+              custom-class="call-me-icon"
+              slot="icon"
+              width="1.5rem"
+              height="1.5rem"
+              fit="cover"
+              src="/static/icon/callme.svg"
+            />
+        </van-cell>
+      </van-cell-group>
+    </van-col>
+  </van-row>
+  <van-row custom-class="action-bar">
+    <van-col span="24">
+      <van-grid 
+        clickable 
+        center
+        column-num="3" 
+        border="{{false}}"
+      >
+        <van-grid-item 
+          use-slot
+          bind:click="toPage"
+          data-index="{{0}}"
+        >
+          <van-image
+            custom-class="action-bar-image"
+            width="3rem"
+            height="3rem"
+            fit="cover"
+            src="/static/icon/heart.svg"
+          />
+          <div class="action-bar-bottom">
+            <div class="action-bar-bottom-box">
+              <text class="action-bar-text">门诊挂号\n</text>
+              <div class="action-bar-desc">实时查看医生情况</div>
+            </div>
+          </div>
+        </van-grid-item>
+        <van-grid-item 
+          use-slot
+          bind:click="toPage"
+          data-index="{{1}}"
+        >
+          <van-image
+            custom-class="action-bar-image"
+            width="3rem"
+            height="3rem"
+            fit="cover"
+            src="/static/icon/reserve.svg"
+          />
+          <div class="action-bar-bottom">
+            <div class="action-bar-bottom-box">
+              <text class="action-bar-text">预约记录\n</text>
+              <div class="action-bar-desc">快捷查询预约信息</div>
+            </div>
+          </div>
+        </van-grid-item>
+        <van-grid-item
+          use-slot
+          bind:click="toPage"
+          data-index="{{2}}"
+        >
+          <van-image
+            custom-class="action-bar-image"
+            width="3rem"
+            height="3rem"
+            fit="cover"
+            src="/static/icon/enquiry.svg"
+          />
+          <div class="action-bar-bottom">
+            <div class="action-bar-bottom-box">
+              <text class="action-bar-text">就诊记录\n</text>
+              <div class="action-bar-desc">方便查看医生叮嘱</div>
+            </div>
+          </div>
+        </van-grid-item>
+      </van-grid>
+    </van-col>
+  </van-row>
+  <van-row custom-class="custom-map-box">
+    <van-col span="24">
+      <map 
+        class="custom-map" 
+        id="map" 
+        longitude="{{ 113.256345 }}" 
+        latitude="{{ 23.131267 }}" 
+        markers="{{markers}}"
+      />
+    </van-col>
+  </van-row>
+</view>
+<login/>
+<certification/>

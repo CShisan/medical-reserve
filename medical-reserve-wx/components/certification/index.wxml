@@ -1,0 +1,47 @@
+<van-notify id="external-custom-notify" />
+<van-dialog
+  id="van-dialog"
+  use-title-slot
+  use-slot
+  width="80%"
+  theme="round-button"
+  show="{{ show }}"
+  transition="none"
+  confirmButtonText="认证"
+  before-close="{{ beforeClose }}"
+  bind:confirm="submit"
+  z-index="{{ 99999 }}"
+>
+  <van-notify id="custom-notify" />
+  <view slot="title">
+    实名认证
+    <van-icon name="info-o" />
+  </view>
+  <van-field
+    center
+    required
+    clearable
+    auto-focus
+    type="nickname"
+    left-icon="manager-o"
+    title-width="4em"
+    model:value="{{ realName }}"
+    placeholder="请输入真实姓名"
+    label="真实姓名"
+    border="{{ false }}"
+  />
+  <van-field
+    center
+    required
+    clearable
+    auto-focus
+    type="idcard"
+    left-icon="idcard"
+    title-width="4em"
+    label="身份证"
+    placeholder="请输入身份证号码"
+    maxlength="18"
+    model:value="{{ idCard }}"
+    border="{{ false }}"
+  />
+</van-dialog>

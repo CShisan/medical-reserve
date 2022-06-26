@@ -1,0 +1,46 @@
+<van-dialog id="van-dialog" confirm-button-color="#51d3bd"/>
+<view class="container">
+  <van-cell-group border="{{ false }}">
+    <van-cell border="{{ false }}">
+      <van-row slot="title" custom-class="title-bar">
+        <van-col offset="8" span="8">个人信息</van-col>
+        <van-col offset="4" span="4">
+          <van-button 
+            type="default" 
+            size="small" 
+            round 
+            bind:click="changeEditStatus"
+          >编辑</van-button>
+        </van-col>
+      </van-row>
+    </van-cell>
+    <view wx:if="{{ isEdit }}" class="info-cell">
+      <van-field
+        value="{{ form.username }}"
+        label="用户名"
+        placeholder="请输入用户名"
+        input-align="right"
+        class="info-cell"
+        bind:change="inputChange"
+        data-key="username"
+      />
+    </view>
+    <view wx:if="{{ isEdit }}" class="info-cell">
+      <van-field
+        value="{{ form.phone }}"
+        label="手机号码"
+        placeholder="请输入用户名"
+        input-align="right"
+        bind:change="inputChange"
+        data-key="phone"
+      />
+    </view>
+    <van-cell wx:if="{{ !isEdit }}" title="用户名" value="{{ user.username }}" custom-class="info-cell" />
+    <van-cell wx:if="{{ !isEdit }}" title="手机号码" value="{{ user.phone }}" custom-class="info-cell" />
+    <van-cell title="真实姓名" value="{{ user.realName }}" custom-class="info-cell" />
+    <van-cell title="身份证号码" value="{{ user.idCard }}" custom-class="info-cell" />
+    <van-cell title="性别" value="{{ user.sex === 1 ? '男' : '女' }}" custom-class="info-cell" />
+    <van-cell title="出生年月" value="{{ user.birthday }}" custom-class="info-cell" />
+  </van-cell-group>
+  <van-button wx:if="{{ isEdit }}" type="primary" round bind:click="submit" custom-class="submit-btn">保存</van-button>
+</view>

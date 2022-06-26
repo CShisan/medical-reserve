@@ -1,0 +1,13 @@
+.title-bar {
+  text-align: center;
+}
+
+.info-cell {
+  margin-top: 20px;
+}
+
+.submit-btn {
+  margin-top: 40px;
+  margin-left: calc(50% - 10em);
+  width: 20em;
+}

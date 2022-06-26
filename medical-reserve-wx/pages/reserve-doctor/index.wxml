@@ -1,0 +1,86 @@
+<van-dialog id="van-dialog" confirm-button-color="#51d3bd"/>
+<view class="container">
+  <van-row custom-class="doctor-bar">
+    <van-col custom-class="avatar-doctor-bar" span="6">
+      <van-image 
+        width="64" 
+        height="64" 
+        radius="10px"
+        fit="cover"
+        src="{{ avatar }}" 
+      />
+    </van-col>
+    <van-col custom-class="doctor-bar-info" span="12">
+      <van-row><van-col span="24">{{ doctorName }}</van-col></van-row>
+      <van-row><van-col span="24">{{ titleName }}</van-col></van-row>
+    </van-col>
+    <van-col custom-class="doctor-bar-date" span="6">
+      <van-button 
+        icon="calendar-o" 
+        type="default"
+        bind:click="handleCalendarShow"
+        data-show="{{ true }}"
+      >选择日期</van-button>
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="24">
+      <van-cell-group>
+        <van-cell label="{{ date }}" border="{{ false }}" />
+      </van-cell-group>
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="24">
+      <view hidden="{{ schedules.length }}">
+        <van-empty  image="default" description="该医生今天暂未排班" />
+      </view>
+      <view hidden="{{ !schedules.length }}"  >
+        <van-cell-group clickable title="可预约时间段" custom-class="reserve-cell-box">
+          <van-cell 
+            wx:for="{{schedules}}" 
+            wx:key="index" 
+            wx:for-index="index" 
+            wx:for-item="item" 
+            wx:if="{{ !item.disable }}"
+            title="时间段：{{ item.periodText }}"
+            value="剩余：{{ item.count }}"
+            bind:click="handlePeriodSelect"
+            data-data="{{ item }}"
+          >
+            <view slot="right-icon" style="width: 1em; margin-left: 20px;">
+              <van-icon 
+                custom-style="{{ current.interval === item.interval && current.period === item.period ? '' : 'display: none' }}"
+                name="success" 
+                color="#41cbb5" 
+                size="1em"
+              />
+            </view>
+          </van-cell>
+        </van-cell-group>
+      </view>
+    </van-col>
+  </van-row>
+</view>
+<van-calendar 
+  show-confirm="{{ false }}"
+  show="{{ calendarShow }}" 
+  bind:close="calendarClose" 
+  bind:confirm="handleCalendarSelect" 
+  max-date="{{ calendarMaxDate }}"
+  class="custom-calendar"
+  color="#51d3bd"
+/>
+<van-submit-bar
+  disabled="{{ submitDisable || !confirmRule }}"
+  price="{{ charge * 100 + 0.001 }}"
+  price-class="submit-bar-price"
+  button-class="submit-bar-btn"
+  button-text="确认预约"
+  bind:submit="submit"
+  label="挂号费用："
+>
+  <van-radio-group value="{{ confirmRule }}" bind:change="isConfirmRule">
+    <van-radio checked-color="#51d3bd" name="{{ true }}">预约须知</van-radio>
+  </van-radio-group>
+</van-submit-bar>

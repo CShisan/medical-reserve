@@ -1,0 +1,92 @@
+server:
+  port: 8013
+
+spring:
+  datasource:
+    driver-class-name: com.mysql.cj.jdbc.Driver
+    url: jdbc:mysql://your-mysql-address.com/medical_reserve?useUnicode=true&characterEncoding=UTF-8&serverTimezone=GMT%2B8
+    username: medical-reserve
+    password: medical-reserve
+    hikari:
+      # 连接池名
+      pool-name: DateHikariCP
+      # 最小空闲连接数
+      minimum-idle: 5
+      # 空闲连接存活最大时间,默认600000(10分钟)
+      idle-timeout: 180000
+      # 最大连接数,默认10
+      maximum-pool-size: 10
+      # 从连接池返回的连接的自动提交
+      auto-commit: true
+      # 连接最大存活时间,0永久存活,默认1800000(30分钟)
+      max-lifetime: 1800000
+      # 连接超时时间,默认30000(30s)
+      connection-timeout: 30000
+      # 测试连接是否可用的查询语句
+      connection-test-query: SELECT 1
+
+  # redis配置
+  redis:
+    # 超时时间
+    timeout: 10000
+    # 地址
+    host: localhost
+    # 端口
+    port: 6379
+    # 密码
+    password: 123456
+    # 数据库(索引,从0开始)
+    database: 13
+    # 自定义默认失效时间
+    expiration: 600000
+
+    lettuce:
+      pool:
+        # 最大连接数,默认8
+        max-active: 1024
+        # 最大连接阻塞等待时间,默认-1
+        max-wait: 10000ms
+        # 最大空闲连接
+        max-idle: 200
+        # 最小空闲连接
+        min-idle: 5
+
+# Mybatis-plus配置
+mybatis-plus:
+  # 配置Mybatis数据返回类型别名(默认别名是类名)
+  type-aliases-package: com.cshisan.server.entity
+  global-config:
+    db-config:
+      logic-delete-field: flag # 全局逻辑删除的实体字段名(since 3.3.0,配置后可以忽略不配置步骤2)
+      logic-delete-value: 1 # 逻辑已删除值(默认为 1)
+      logic-not-delete-value: 0 # 逻辑未删除值(默认为 0)
+  configuration:
+    #自动驼峰命名
+    map-underscore-to-camel-case: true
+    call-setters-on-nulls: true
+    log-impl: org.apache.ibatis.logging.stdout.StdOutImpl
+
+# jwt配置
+jwt:
+  # jwt类型
+  type: Bearer
+  # 头标识
+  header: Authorization
+  # 公钥
+  secret: medical-reserve
+  # 时效(默认七天)
+  expiration: 604800000
+  # 缓存key前缀
+  token-key-prefix: token_
+  # 缓存value前缀
+  token-value-prefix: Bearer
+
+# 微信小程序配置
+wx:
+  appid: yourappid
+  secret: yoursecret
+
+# 业务默认配置
+service:
+  avatar-url: https://your-address.com/images/avatar.jpg
+

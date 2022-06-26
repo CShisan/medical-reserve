@@ -1,0 +1,93 @@
+<view class="container">
+  <van-row>
+    <van-col span="24">
+      <van-cell-group border="{{ false }}" custom-class="user-bar">
+        <van-cell 
+          is-link 
+          url="/pages/info/index"
+          center 
+          border="{{ false }}"
+        >
+          <van-row slot="title">
+            <van-col span="6">
+              <van-image 
+                width="64" 
+                height="64" 
+                fit="cover"
+                radius="10"
+                src="{{ user.avatarUrl }}" 
+              />
+            </van-col>
+            <van-col span="18">
+              <van-row custom-class="user-bar-username">
+                <van-col span="24">{{ user.username }}</van-col>
+              </van-row>
+              <van-row custom-class="user-bar-uid">
+                <van-col span="24" >就诊卡号：{{ user.uid }}</van-col>
+              </van-row>
+            </van-col>
+          </van-row>
+        </van-cell>
+      </van-cell-group>
+    </van-col>
+  </van-row>
+  <van-row>
+    <van-col span="24">
+      <van-cell-group border="{{ false }}" custom-class="action-bar">
+        <van-cell 
+          is-link 
+          center
+          url="/pages/reserve-select/index"
+          border="{{ false }}"
+          custom-class="action-bar-cell"
+        >
+          <view slot="title" class="action-bar-item">
+            <van-icon 
+              custom-class="action-bar-item-icon" 
+              name="phone" 
+              size="18px" 
+              color="#51d3bd"
+            />
+            <span>在线预约</span>
+          </view>
+        </van-cell>
+        <van-cell 
+          is-link 
+          center
+          url="/pages/reserve-record/index"
+          border="{{ false }}"
+          custom-class="action-bar-cell"
+        >
+          <view slot="title" class="action-bar-item">
+            <van-icon 
+              custom-class="action-bar-item-icon" 
+              name="todo-list" 
+              size="18px" 
+              color="#51d3bd"
+            />
+            <span>预约记录</span>
+          </view>
+        </van-cell>
+        <van-cell 
+          is-link 
+          center
+          url="/pages/enquiry-record/index"
+          border="{{ false }}"
+          custom-class="action-bar-cell"
+        >
+          <view slot="title" class="action-bar-item">
+            <van-icon 
+              custom-class="action-bar-item-icon" 
+              name="column" 
+              size="18px" 
+              color="#51d3bd"
+            />
+            <span>就诊记录</span>
+          </view>
+        </van-cell>
+      </van-cell-group>
+    </van-col>
+  </van-row>
+</view>
+<login/>
+<certification/>

@@ -1,0 +1,14 @@
+<van-overlay show="{{ show }}" z-index="{{ 99999 }}">
+  <view class="login-btn">
+    <van-button
+      round
+      icon="phone-circle-o"
+      open-type="getPhoneNumber"
+      lang="zh_CN"
+      bindgetphonenumber="login"
+      color="linear-gradient(to bottom right, #fe5b33, #f01f36)"
+    >
+      手机号一键授权登录
+    </van-button>
+  </view>
+</van-overlay>
